@@ -37,4 +37,4 @@ test_number_not_happy = len(glob.glob('test/angry/*')) + len(glob.glob('test/dis
                    + len(glob.glob('test/fearful/*'))
 pd = pandas.DataFrame(np.c_[np.zeros(len(image_list)), image_list])
 pd.loc[test_number_not_happy+1:test_number_not_happy + test_number_happy, 0] = 1
-pd.to_csv("test.csv")
+pd.to_csv("test.csv",header=False,index=False)
