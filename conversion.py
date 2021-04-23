@@ -23,7 +23,7 @@ train_number_not_happy = len(glob.glob('train/angry/*')) + len(glob.glob('train/
                    + len(glob.glob('train/fearful/*'))
 pd = pandas.DataFrame(np.c_[np.zeros(len(image_list)), image_list])
 pd.loc[train_number_not_happy+1:train_number_not_happy + train_number_happy, 0] = 1
-pd.to_csv("train.csv")
+pd.to_csv("train.csv",header = False,index = False )
 
 # format the test data
 image_list = []
