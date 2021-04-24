@@ -23,8 +23,8 @@ X_test = []
 y_test = []
 
 #split and normalize data
-y_train = training_data.iloc[:,0:1]/255
-y_test = test_data.iloc[:,0:1]/255
+y_train = training_data.iloc[:,0:1]
+y_test = test_data.iloc[:,0:1]
 X_train = training_data.iloc[:,1:]/255
 X_test = test_data.iloc[:,1:]/255
 
