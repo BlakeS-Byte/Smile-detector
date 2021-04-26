@@ -41,7 +41,7 @@ pd.to_csv("test.csv",header=False,index=False)
 
 # format the custom data
 image_list = []
-for filename in glob.glob('custom/formatted/*.jpg'):
+for filename in glob.glob('custom/formatted/*.png'):
     im = Image.open(filename)
     data = asarray(im).flatten()
     image_list.append(data)
