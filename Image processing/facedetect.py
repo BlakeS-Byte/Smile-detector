@@ -6,13 +6,16 @@ import shutil
 import os
 from PIL import Image
 
+# deletes all previously formatted photos
 direct = 'custom/formatted/'
 for f in os.listdir(direct):
     os.remove(os.path.join(direct, f))
 
+# copies all of the photos into /formatted to be processed
 for filename in glob.glob('custom/*.jpg'):
     shutil.copy(filename, 'custom/formatted/')
 
+# goes through all custom images and formats to be worked on
 for filename in glob.glob('custom/formatted/*.jpg'):
 
     #Read the input image
