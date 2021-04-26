@@ -36,7 +36,12 @@ for filename in glob.glob('custom/formatted/*.jpg'):
         faces = img[y:y + h, x:x + w]
         cv2.imwrite(filename, faces)
 
-    #Convert cropped image to grayscale and scale down to 48x48 pixels
-    scaling = Image.open(filename).convert('L')
-    scaled_face = scaling.resize((48, 48))
-    scaled_face.save(filename, 'PNG', optimize=True)
+# Convert cropped .jpg image to grayscale and scale down to 48x48 pixels, then save as .png and delete .jpg
+for filename in glob.glob('custom/formatted/*.jpg'):
+    if(filename.endswith(".jpg")):
+        scaling = Image.open(filename).convert('L')
+        scaled_face = scaling.resize((48, 48))
+        file_name, file_ext = os.path.splitext(filename)
+        scaled_face.save(('{}.png'.format(file_name)), optimize=True)
+        os.remove(filename)
+
