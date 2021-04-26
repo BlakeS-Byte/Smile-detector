@@ -38,3 +38,12 @@ test_number_not_happy = len(glob.glob('test/angry/*')) + len(glob.glob('test/dis
 pd = pandas.DataFrame(np.c_[np.zeros(len(image_list)), image_list])
 pd.loc[test_number_not_happy+1:test_number_not_happy + test_number_happy, 0] = 1
 pd.to_csv("test.csv",header=False,index=False)
+
+# format the custom data
+image_list = []
+for filename in glob.glob('custom/formatted/*.jpg'):
+    im = Image.open(filename)
+    data = asarray(im).flatten()
+    image_list.append(data)
+pd = pandas.DataFrame(np.c_[np.ones(len(image_list)), image_list])
+pd.to_csv("customdata.csv", header=False, index=False)
