@@ -6,16 +6,16 @@ from PIL import Image
 
 # function prints out the first 5 images that are predicted to be smiles and are actually smiles
 def print_pred():
-for i in range(len(X_custom)):                                 # print out the predictions for our custom images
-    print('Prediction for custom photo', i+1, 'is:', end='')
-    if predictions[i] == 0:
-        print(' No smile')
-    else:
-        print(' Smile')
-    imt = X_custom[i]
-    image2 = Image.fromarray(np.reshape(imt, [48, 48]))
-    image2.show()
-    input()                                                    # waits for 'enter' to be pressed
+    for i in range(len(X_custom)):                                 # print out the predictions for our custom images
+        print('Prediction for custom photo', i+1, 'is:', end='')
+        if predictions[i] == 0:
+            print(' No smile')
+        else:
+            print(' Smile')
+        imt = X_custom[i]
+        image2 = Image.fromarray(np.reshape(imt, [48, 48]))
+        image2.show()
+        input()                                                    # waits for 'enter' to be pressed
 
 dataset_train = loadtxt('train.csv', delimiter=',')            # take the training from the csv file
 dataset_test = loadtxt('test.csv', delimiter=',')              # take the test data
@@ -45,4 +45,4 @@ accuracy = sum(np.array(predictions == y_test)) / len(X_test)  # checks the accu
 print(accuracy * 100)                                          # prints out the accuracy
 
 predictions = (model.predict(X_custom) > 0.5).astype("int32")  # using the test data, predicts the labels of custom
-print_pred()                                                   # prints photo for comparison with smiling prediction
+print_pred()                                                   # prints photos for comparison with smiling prediction
