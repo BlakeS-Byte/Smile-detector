@@ -44,5 +44,5 @@ for i in range(len(X_custom)):                                 # print out the p
         print(' No smile')
     else:
         print(' Smile')
-    print_pred(i)
-    input()
+    print_pred(i)                                              # prints photo for comparison with smiling prediction
+    input()                                                    # waits for 'enter' to be pressed
