@@ -4,15 +4,15 @@ from keras.layers import Dense                                 # used for the la
 import numpy as np                                             # used for arrays
 from PIL import Image
 
-# function prints out the first 5 images that are predicted to be smiles and are actually smiles
+# function prints out the custom images and what the program predicted they were doing
 def print_pred():
     for i in range(len(X_custom)):                                 # print out the predictions for our custom images
         print('Prediction for custom photo', i+1, 'is:', end='')
         if predictions[i] == 0:
-            print(' No smile')
+            print(' Not smiling')
         else:
-            print(' Smile')
-        imt = X_custom[i]
+            print(' Smiling')
+        imt = X_custom[i]                                          # prints out the pictures in custom
         image2 = Image.fromarray(np.reshape(imt, [48, 48]))
         image2.show()
         input()                                                    # waits for 'enter' to be pressed
