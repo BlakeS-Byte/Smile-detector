@@ -25,7 +25,7 @@ for filename in glob.glob('custom/formatted/*.jpg'):
     detector = cv2.CascadeClassifier('haarcascade_frontalface_alt2.xml')
 
     #Detect faces
-    faces = detector.detectMultiScale(gray, 1.1, 4)
+    faces = detector.detectMultiScale(gray, 1.1, 5)
 
     #Draw rectangle around face and crop face
     for (x, y, w, h) in faces:
