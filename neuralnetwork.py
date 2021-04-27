@@ -4,18 +4,19 @@ from keras.layers import Dense                                 # used for the la
 import numpy as np                                             # used for arrays
 from PIL import Image
 
-# function prints out the custom images and what the program predicted they were doing
+# function prints out the custom photos and what the program predicted they were doing
 def print_pred():
-    for i in range(len(X_custom)):                                 # print out the predictions for our custom images
-        print('Prediction for custom photo', i+1, 'is:', end='')
-        if predictions[i] == 0:
-            print(' Not smiling')
+    count = 0
+    for filename in glob.glob('custom/*.jpg'):                 # print out the predictions for our custom images
+        print('Prediction for custom photo', count+1, 'is:', end='')
+        if predictions[count] == 0:
+           print(' No smile')
         else:
-            print(' Smiling')
-        imt = X_custom[i]                                          # prints out the pictures in custom
-        image2 = Image.fromarray(np.reshape(imt, [48, 48]))
-        image2.show()
-        input()                                                    # waits for 'enter' to be pressed
+           print(' Smile')
+        image = Image.open(filename)                           # opens and prints out each image
+        image.show()
+        input()                                                # waits for enter to be pressed
+        count+=1
 
 dataset_train = loadtxt('train.csv', delimiter=',')            # take the training from the csv file
 dataset_test = loadtxt('test.csv', delimiter=',')              # take the test data
