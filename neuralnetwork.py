@@ -3,6 +3,7 @@ from keras.models import Sequential                            # used for the mo
 from keras.layers import Dense                                 # used for the layers
 import numpy as np                                             # used for arrays
 from PIL import Image
+import glob
 
 # function prints out the custom photos and what the program predicted they were doing
 def print_pred():
